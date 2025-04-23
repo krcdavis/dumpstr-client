@@ -65,12 +65,13 @@
 .threadbox {
   background-color: #884488;
   margin: 5px;
+width: 85%;
 
 }
 
 .postbox {
   background-color: #4466aa;
-  width: 99%;
+  width: 80%;
   margin: 7px;
 margin-right: 20px;
 
