@@ -95,7 +95,7 @@ value: board,
 setter: setBoard
 };
 
-const pwData = {
+const pwdata = {
 name: "password",
 value: pw,
 setter: setPw
