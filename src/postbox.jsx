@@ -4,7 +4,12 @@ function PostBox( {things} ) {
 //things._id, tid, postbody, img, timestamp, username
 return (
 <div className="postbox">
-{things._id} {things.name} {things.postbody}
+<div className = "pHeader">
+Jan 2 1970 22:22:22 {things._id} {things.name}:
+</div>
+<div className="postBody">
+ {things.postbody}
+</div>
 </div>
 );
 
