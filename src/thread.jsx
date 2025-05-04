@@ -1,3 +1,5 @@
+//temp wipe
+
 
 import Axios from "axios";
 
@@ -6,26 +8,25 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import './App.css';
 
+//import ThreadThing...
 import PostAdder from './PostAdder';
-//threadbox, postbox
+import ThreadThing from './threadthing';
 
-
-
-function ThreadPage(props) {
-
-  const { id } = useParams();
-const [load, setLoad] = useState(true);
-
-const [posts, setPosts] = useState([]);
-//just an array of posts with thread starter as first
-
-//I should put this somewhere shared...
 const URL = import.meta.env.VITE_URL || "http://localhost:5545/";
 
 
-//this but posts for specified thread id
+
+function ThreadPage(params) {
+
+  const { id, tid } = useParams();
+const [load, setLoad] = useState(true);
+
+
+const [posts, setPosts] = useState([]);
+
+//this but posts for specified thread id... and board (id)...
 function getPosts() {
-Axios.get(URL+"getposts", {params: {id}}).then((resp) => {
+Axios.get(URL+"getposts", {params: {id, tid}}).then((resp) => {
       console.log(resp.data);
 setPosts(resp.data); //yay :)
     });
@@ -37,40 +38,19 @@ getPosts();
 console.log("loading");
 }
 
-
-function ThreadContents() {
-const contents = [];
-
-
-//next: <div className="thread"> {threadbox followed by postboxes} </div>
-//uhhh pop the first one off the array then do for?
-
-for (const trd in threads) {
-
-const posts = [];
-for (const p in threads[trd]) {
-//console.log(threads[trd][p]);
-posts.push(
-<PostBox key={threads[trd][p]._id} things={threads[trd][p]} />
-);
-}//for posts
-
-}
-
-
-
-//next: pass in board & thread id to postadder, or ...
+//and now just load a single threadthing (:
 
 return(
 <div>
 <div className="contents">
-<ThreadContents />
+<ThreadThing key={tid} things={posts} />
 </div>
       <div className="addpost1">
 	<PostAdder />
       </div>
 </div>
 );
-};
+
+}
 
 export default ThreadPage

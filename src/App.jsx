@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from "react-router";
 import Axios from "axios";
 //router...
 
@@ -10,34 +11,34 @@ import PostAdder from './PostAdder';
 
 function App() {
 
-//const [boards, setBoards] = useState([]);//hardcode it
-const boards = ["dump","tech","weeb"];
-
 
 //server url...
 const URL = import.meta.env.VITE_URL || "http://localhost:5545/";
 
-function makeThread( {things} ) {
-//package up title(optional), post, username, image, password and send
-//timestamp and _id assigned on posting
 
-}
 //for now just get dumps or whatever
 
   return (
     <>
-      <div>Homepage
+      <div><h1>Welcome to dumpstr</h1>
       </div>
-      <div className="posts">
+      <div className="boards">
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          <Link to="/board/dump/">/dump/</Link> -
+        </p>
+        <p>
+          <Link to="/board/weeb/">/weeb/</Link> -
+        </p>
+        <p>
+          <Link to="/board/tech/">/tech/</Link> -
+        </p>
+        <p>
+          <Link to="/board/game/">/game/</Link> - gaming gamers gamer gameringly
         </p>
       </div>
-      <div className="addpost1">{/* next: ...*/}
-	<PostAdder />
-      </div>
     </>
-  )
+  );
+
 }
 
 export default App

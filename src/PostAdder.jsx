@@ -4,6 +4,9 @@ import Axios from "axios";
 //pass in board, thread etc on page creation
 
 
+//uh
+const URL = import.meta.env.VITE_URL || "http://localhost:5545/";
+
 /////////////////
 function EditLine({data}) {
 return(

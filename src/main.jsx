@@ -7,12 +7,19 @@ import './index.css'
 
 import App from './App.jsx'
 
-import BoardPage from "./board.jsx";
+//import BoardPage from "./board.jsx";
+//import ThreadPage from './thread';
+
+import BoardOrThread from './boardorthread';
 
 
+//absolute fucket
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/board/:id", element: <BoardPage /> },
+
+  { path: "/board/:id", element: <BoardOrThread />,
+     children: [{ path:"/board/:id/:tid", element: <BoardOrThread /> }],
+   },
 ]);
 
 createRoot(document.getElementById('root')).render(
