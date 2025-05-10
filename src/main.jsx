@@ -19,6 +19,13 @@ const router = createBrowserRouter([
 
   { path: "/board/:id", element: <BoardOrThread />,
      children: [{ path:"/board/:id/:tid", element: <BoardOrThread /> }],
+
+//  { path: "/board/:id",
+//     children: [
+
+//    { index: true, element: <BoardOrThread /> },
+//    { path:"/board/:id/:tid", element: <BoardOrThread /> }
+//   ],
    },
 ]);
 

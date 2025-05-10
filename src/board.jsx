@@ -31,7 +31,7 @@ const contents = [];
 for (const trd in threads) {
 //add threadthing to contents
 contents.push(
-<ThreadThing key={threads[trd]._id} things={threads[trd]} />
+<ThreadThing key={threads[trd][0]._id} things={threads[trd]} />
 );
 //posts.push(<ThreadBox key={threads[trd]._id} things={threads[trd]} />);
 
@@ -50,7 +50,7 @@ return(
 
 function getThreads() {
 Axios.get(URL+"getthreads", {params: {id}}).then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
 setThreads(resp.data); //yay :)
     });
 }//get
@@ -61,13 +61,15 @@ getThreads();
 console.log("board loading");
 }
 
+const datas = {id: id};
+
 return(
 <div className="all">
 <div className="contents">
 <BoardContents />
 </div>
       <div className="addpost1">{/* next: ...*/}
-	<PostAdder />
+	<PostAdder id={id}/>
       </div>
 </div>
 );

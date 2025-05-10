@@ -26,21 +26,31 @@ return(
 
 
 //////////////////
-function PostAdder({pagedata}) {
+//pagedata- board, thread (optional/unused on board page/thread adder- second component?)
+//if starting new thread, pass -1
+//break it into boardid and tid, with a default?
+
+//also, pass in a function to use after receiving results of post- update page or display error message ?
+function PostAdder(pagedata) {
+//console.log(pagedata);//there...
+
+//console.log( pagedata.tid ? pagedata.tid : -1);// (:
 
 const [nname, setName] = useState("anonymouse");
 const [imgurl, setImgurl] = useState("");
 
 const [postBody, setPostBody] = useState("");//but textarea
 
-//temporary manually set
-const [tid, setTid] = useState(0);
-const [id, setId] = useState(0);
+const [tid, setTid] = useState(pagedata.tid ? pagedata.tid : -1);// :)
+//const [id, setId] = useState(0);
 const [board, setBoard] = useState("dump");
 //board
 
 //lol
-const [pw, setPw] = useState("");
+const [pw, setPw] = useState(import.meta.env.VITE_HOMEPW || "");//
+//set to env || "" for local only pw autofill (:
+
+
 
 ///makepost
 function makePost(things) {
@@ -48,16 +58,14 @@ function makePost(things) {
 console.log("que?");
 console.log(things);
 
-
 //just use normal post for now
+//create thread just adds title, could be handled on server end (is)
     Axios.post(URL+"post", things).then(() => {
       console.log("ok");
+//next: obtain and handle results
 });
 
-//actually no board for now because it uses collections...
-//but board does need to be passed in
-//create some collections and... a dropdown list?
-}
+}//make
 
 
 const namedata = {
@@ -72,31 +80,6 @@ value: imgurl,
 setter: setImgurl
 };
 
-//not used
-const postbodata = {
-name: "post",
-value: postBody,
-setter: setPostBody
-};
-
-const iddata = {
-name: "id(manual)",
-value: id,
-setter: setId
-};
-
-const tiddata = {
-name: "thred id(manual)",
-value: tid,
-setter: setTid
-};
-
-
-const boarddata = {
-name: "board (manual)",
-value: board,
-setter: setBoard
-};
 
 const pwdata = {
 name: "password",
@@ -104,34 +87,22 @@ value: pw,
 setter: setPw
 };
 
-
-//next: add boards as collections...
-//add some way to track last/highest post number
-//add to backend: get timestamp when adding post
+//next:
 //and some kind of user id (IP, cookie....)
 
-//-set board and tid based on pagedata
+//-set board and tid based on pagedata... done w/ usestates above
 
 const obj = {
 name: nname,
 imgurl: imgurl,
 postbody: postBody,
-id: id,
-tid: tid,
-board: board,
+tid: tid,//postdata.tid
+board: pagedata.id,
 pw: pw
 }
 
 return(<>
-        add a post (manually)
-
-<label>board(manual): 
-<select name="boards" id="boards" onChange={ (event) => setBoard( event.target.value ) }>
-  <option value="dump">Dump</option>
-  <option value="tech">Tech</option>
-  <option value="weeb">Weeb</option>
-  <option value="dont">Don't</option>
-</select></label>
+        add a post 
 
 <EditLine data = {namedata} />
 <EditLine data = {imgdata} />
@@ -140,8 +111,6 @@ return(<>
 onChange={ (event) => setPostBody( event.target.value ) }
 ></textarea>
 </label>
-<EditLine data = {iddata} />
-<EditLine data = {tiddata} />
 <EditLine data = {pwdata} />
 
 <button onClick={() => makePost(obj)}>Post</button>
