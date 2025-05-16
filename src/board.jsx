@@ -50,7 +50,7 @@ return(
 
 function getThreads() {
 Axios.get(URL+"getthreads", {params: {id}}).then((resp) => {
-      //console.log(resp.data);
+      //console.log(resp.status);//good
 setThreads(resp.data); //yay :)
     });
 }//get
@@ -61,6 +61,15 @@ getThreads();
 console.log("board loading");
 }
 
+//directs you to the page of the new thread i guess?
+//uh for now just reload the threads...
+function newThreadUpdate(statu) {
+//match result status... if errors, show error message
+//^this could be done in PostAdder actually. let's do that
+console.log("callb", statu);
+//then just get threads?
+}
+
 const datas = {id: id};
 
 return(
@@ -68,8 +77,8 @@ return(
 <div className="contents">
 <BoardContents />
 </div>
-      <div className="addpost1">{/* next: ...*/}
-	<PostAdder id={id}/>
+      <div className="addpost1">{/* next: ... callback formatting?*/}
+	<PostAdder id={id} callback={(event) => newThreadUpdate( event )}/>
       </div>
 </div>
 );

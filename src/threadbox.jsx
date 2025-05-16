@@ -1,4 +1,5 @@
 
+import { Link } from "react-router";
 
 //add: link to thread by id
 
@@ -12,15 +13,26 @@ function ThreadBox ( {things} ) {
 //postbody- flex row img and posttext?
 //css float left/right?
 //<img src="website_art.png" height= "75" width="235" style="float:left;"/>
+//things.imgurl
 
+//eh fuggit
+const str = things._id+"/";
+//amazingly enough this works... no leading /
+
+const img = []
+//if imgurl exists, add img src
+if (things.imgurl){
+img.push( <img src={things.imgurl} height= "135" width="175" key={things._id}/> );
+}
+//else, null/placeholder image.
 
 return (
 <div className="threadbox">
 <div className = "tHeader">
-(has anyone ever go so far) | Jan 2 1970 22:22:22 {things._id} {things.name}:
+(has anyone ever go so far) | Jan 2 1970 22:22:22 <Link to={str} >{things._id}</Link> {things.name}:
 </div>
 <div className="postBody">
-[img] {things.postbody}
+{img} {things.postbody}
 </div>
 </div>
 );

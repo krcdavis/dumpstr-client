@@ -32,9 +32,13 @@ return(
 
 //also, pass in a function to use after receiving results of post- update page or display error message ?
 function PostAdder(pagedata) {
+
 //console.log(pagedata);//there...
 
 //console.log( pagedata.tid ? pagedata.tid : -1);// (:
+
+//console.log(pagedata.callback);//ok...
+const callback = pagedata.callback;
 
 const [nname, setName] = useState("anonymouse");
 const [imgurl, setImgurl] = useState("");
@@ -50,7 +54,7 @@ const [board, setBoard] = useState("dump");
 const [pw, setPw] = useState(import.meta.env.VITE_HOMEPW || "");//
 //set to env || "" for local only pw autofill (:
 
-
+const [message, setMessage] = useState("");
 
 ///makepost
 function makePost(things) {
@@ -60,10 +64,27 @@ console.log(things);
 
 //just use normal post for now
 //create thread just adds title, could be handled on server end (is)
-    Axios.post(URL+"post", things).then(() => {
-      console.log("ok");
-//next: obtain and handle results
-});
+    Axios.post(URL+"post", things).then((res) => {
+      console.log(res);//data and status have it... status text is "OK" for error. ?
+//data.insertedId
+//next: obtain and handle results.
+setMessage("sending...");
+const sta = res.data.status ?? res.status;
+switch (sta) {
+ case 200:
+  //success. call callback function for board/thread page to do whatever
+  setMessage("");
+callback("aaa");
+
+break;
+ case 401:
+  //errors. further matching? -set an otherwise empty {variable} to error message
+  setMessage("an error occurred");
+callback("bbb");
+
+};//switch
+
+});//then
 
 }//make
 
@@ -114,6 +135,7 @@ onChange={ (event) => setPostBody( event.target.value ) }
 <EditLine data = {pwdata} />
 
 <button onClick={() => makePost(obj)}>Post</button>
+{message}
 
 </>
 )
