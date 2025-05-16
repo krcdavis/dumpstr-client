@@ -68,6 +68,7 @@ function newThreadUpdate(statu) {
 //^this could be done in PostAdder actually. let's do that
 console.log("callb", statu);
 //then just get threads?
+getThreads();
 }
 
 const datas = {id: id};
