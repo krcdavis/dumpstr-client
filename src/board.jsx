@@ -71,7 +71,6 @@ console.log("callb", statu);
 getThreads();
 }
 
-const datas = {id: id};
 
 return(
 <div className="all">

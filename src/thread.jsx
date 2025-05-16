@@ -38,11 +38,16 @@ getPosts();
 console.log("loading thred");
 }
 
-//and now just load a single threadthing (:
 
-const datas = {id: id, tid: tid};
+function newPostUpdate(statu) {
+//match result status... if errors, show error message
+//^this could be done in PostAdder actually. let's do that
+console.log("callb", statu);
+//then just get threads?
+getPosts();
+}
 
-//console.log("posts ",posts);
+
 
 return(
 <div className="all">
@@ -50,7 +55,7 @@ return(
 <ThreadThing key={tid} things={posts} />
 </div>
       <div className="addpost1">
-	<PostAdder id={id} tid={tid}/>
+	<PostAdder id={id} tid={tid} callback={(event) => newPostUpdate( event )} />
       </div>
 </div>
 );
