@@ -21,10 +21,11 @@ const str = things._id+"/";
 
 const img = []
 //if imgurl exists, add img src
-if (things.imgurl){
+//if (things.imgurl){
 img.push( <img src={things.imgurl} height= "135" width="175" key={things._id}/> );
-}
+//}
 //else, null/placeholder image.
+//for now, reverted back to having a broken image if imgurl is missing/invalid
 
 return (
 <div className="threadbox">
