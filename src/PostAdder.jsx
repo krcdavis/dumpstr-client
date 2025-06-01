@@ -42,6 +42,7 @@ if (parse.parse_failed) {
 //check parse.host against whitelist; check extension ?
 //iurl.split('.')[-1]
 //multiple extensions like .tar.gz are irrelevant; filenames like this.dot.png can be ignored
+//not actually right eg archive.org ...
 
 return(true);
 }
@@ -145,6 +146,9 @@ switch (sta) {
   setMessage("");
 callback("aaa");
 //and clear editlines
+setTitle("");
+setImgurl("");
+setPostBody("");
 
 break;
  case 401:

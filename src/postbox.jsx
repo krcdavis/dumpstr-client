@@ -8,7 +8,7 @@ function PostBox( {things} ) {
 //added as children of threadbox.
 //things._id, tid, postbody, img, timestamp, username
 
-//timestamp
+//timestamp lol
 let timestamp = "Jan 2 1970 22:22:22";
 
 
