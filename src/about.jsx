@@ -19,14 +19,22 @@ return(
 <li>Hotlink images from external sites (would not be the case with a fully developed website but this simplifies things on my end vs implementing image uploads)</li>
 <li></li>
 </ul>
-<p><h2>Missing/In progress:</h2></p>
+<p><h2>Features in progress:</h2></p>
 <ul>
 <li>Verifying image urls, requiring them for thread-opening posts or when a reply post has no text, possibly restricting them to certain domains</li>
 <li>Sort threads on board page by most recent reply and show only the X most recent ones; add a catalog page; archive and eventually remove threads that haven't receieved replies in some time</li>
-<li>moderation tools</li>
 <li>layout/css</li>
-<li>No concurency/handing of multiple posts going through at the exact same time (site is nowhere near active enough for this to be a problem but I'd like to consider it anyway. concurrency or transactions maybe)</li>
 <li></li>
+</ul>
+<p><h2>future considerations:</h2></p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li>moderation tools</li>
+<li>No concurency/handing of multiple posts going through at the exact same time</li>
 </ul>
 
 <p></p>

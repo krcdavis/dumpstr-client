@@ -15,7 +15,7 @@ let timestamp = "Jan 2 1970 22:22:22";
 const img = []
 //if imgurl exists, add img src
 if (things.imgurl){
-img.push( <img src={things.imgurl} height= "135" width="175" key={things._id}/> );
+img.push( <img src={things.imgurl} height= "130" width="170" key={things._id}/> );
 }
 //else, null/placeholder image.
 

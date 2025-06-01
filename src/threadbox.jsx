@@ -30,7 +30,7 @@ img.push( <img src={things.imgurl} height= "135" width="175" key={things._id}/> 
 return (
 <div className="threadbox">
 <div className = "tHeader">
-(has anyone ever go so far) | Jan 2 1970 22:22:22 <Link to={str} >{things._id}</Link> {things.name}:
+{things.title} | Jan 2 1970 22:22:22 <Link to={str} >{things._id}</Link> {things.name}:
 </div>
 <div className="postBody">
 {img} {things.postbody}
