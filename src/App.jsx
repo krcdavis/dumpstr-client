@@ -36,6 +36,9 @@ const URL = import.meta.env.VITE_URL || "http://localhost:5545/";
           <Link to="/board/game/">/game/</Link> - gaming gamers gamer gameringly
         </p>
       </div>
+<p>
+<Link to="/about/">About Dumpstr</Link>
+</p>
     </>
   );
 

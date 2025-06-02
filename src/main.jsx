@@ -12,6 +12,8 @@ import App from './App.jsx'
 
 import BoardOrThread from './boardorthread';
 
+import About from './about';
+
 
 //absolute fucket
 const router = createBrowserRouter([
@@ -26,7 +28,9 @@ const router = createBrowserRouter([
 //    { index: true, element: <BoardOrThread /> },
 //    { path:"/board/:id/:tid", element: <BoardOrThread /> }
 //   ],
-   },
+   },//board path lol
+  {path: "/about/", element: <About /> },
+
 ]);
 
 createRoot(document.getElementById('root')).render(

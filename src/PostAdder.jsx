@@ -148,7 +148,7 @@ callback("aaa");
 //and clear editlines
 setTitle("");
 setImgurl("");
-setPostBody("");
+setPostBody("");//? y no work
 
 break;
  case 401:
