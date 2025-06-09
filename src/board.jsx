@@ -1,4 +1,3 @@
-//temp wipe...
 
 //it works (:
 
@@ -29,11 +28,13 @@ function BoardContents() {
 const contents = [];
 
 for (const trd in threads) {
-//add threadthing to contents
+//i guess i'll swap to using last timestamp as key, for ordering purposes. so,
+//const tid = threads[timestamp][0].tid//use that for ThreadThing key
+//... that's really the only change
+
 contents.push(
-<ThreadThing key={threads[trd][0]._id} things={threads[trd]} />
+<ThreadThing key={threads[trd][0].tid} things={threads[trd]} />
 );
-//posts.push(<ThreadBox key={threads[trd]._id} things={threads[trd]} />);
 
 }//threads
 
