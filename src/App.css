@@ -85,6 +85,13 @@ min-height: 80px;
 
 }
 
+.header{
+  background-color: #cc88aa;
+  width: 90%;
+  margin: 7px;
+
+}
+
 
 ul {
  text-align: left;
